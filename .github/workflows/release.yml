@@ -1,0 +1,45 @@
+name: Release
+
+# Phase 10 deliverable: compile standalone binaries for linux/darwin/windows
+# with `bun build --compile` and attach them to GitHub Releases. The workflow
+# scaffold is in place; the compile matrix activates when Phase 10 lands.
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  verify:
+    name: verify before release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+      - run: bun install --frozen-lockfile
+      - run: bun run typecheck
+      - run: bun run lint
+      - run: bun test
+
+  compile:
+    name: compile binaries (Phase 10)
+    runs-on: ${{ matrix.os }}
+    needs: verify
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        # target triple per OS is set in Phase 10.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+      - run: bun install --frozen-lockfile
+      - name: Compile (activated in Phase 10)
+        run: |
+          echo "Phase 10: bun build --compile packages/cli/src/index.ts --target <triple> out/tagent-office"
+          exit 0

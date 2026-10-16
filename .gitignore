@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+out/
+.next/
+next-env.d.ts
+*.tsbuildinfo
+
+# Environment — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# Runtime data (SQLite DBs, agent workspaces)
+storage/sqlite/*
+!storage/sqlite/.gitkeep
+storage/workspaces/*
+!storage/workspaces/.gitkeep
+*.db
+*.db-wal
+*.db-shm
+
+# Test coverage
+coverage/
+
+# Sandbox/dev tooling artifacts (not part of the product)
+download/
+dev.log
+worklog.md
+agent-ctx/
+scripts/sandbox/
+skills/
+upload/
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Local tooling (not part of the product)
+.claude/
+.specstory/

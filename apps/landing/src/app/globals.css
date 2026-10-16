@@ -1,0 +1,11 @@
+/*
+ * Path: apps/landing/src/app/globals.css
+ * Purpose: Tailwind entry for the landing page — same brand tokens as the
+ *          app (zinc-950 + orange).
+ * Dependencies: tailwindcss
+ */
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}

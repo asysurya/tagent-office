@@ -1,0 +1,11 @@
+/**
+ * Path: /tsconfig.json (root)
+ * Purpose: Typecheck root-level scripts/ (dev orchestrator). Workspace packages
+ *          have their own tsconfig.json; the root "typecheck" script runs both.
+ * Dependencies: ./tsconfig.base.json
+ */
+{
+  "extends": "./tsconfig.base.json",
+  "include": ["scripts/**/*.ts"],
+  "exclude": ["scripts/sandbox/**"]
+}

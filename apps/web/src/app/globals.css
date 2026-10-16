@@ -1,0 +1,57 @@
+/*
+ * Path: apps/web/src/app/globals.css
+ * Purpose: Tailwind v4 entry + Tagent Office design tokens (PRD 2.8):
+ *          dark zinc-950 background, orange-400/500 accent, Inter UI font,
+ *          JetBrains Mono code font, subtle shadows, 4px spacing rhythm.
+ * Dependencies: tailwindcss
+ */
+@import "tailwindcss";
+
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: var(--color-zinc-950);
+  color: var(--color-zinc-100);
+}
+
+/* Subtle custom scrollbars for the dark theme. */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-zinc-800);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-zinc-700);
+}
+
+/* Working-state pulse for agent cards. */
+@keyframes tagent-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.tagent-working {
+  animation: tagent-pulse 1.6s ease-in-out infinite;
+}

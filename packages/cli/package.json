@@ -1,0 +1,24 @@
+{
+  "name": "@tagent-office/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "tagent-office binary entry point. `tagent-office start <workspace>` boots the daemon in-process.",
+  "bin": {
+    "tagent-office": "./src/index.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tagent-office/daemon": "workspace:*",
+    "@tagent-office/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.14",
+    "typescript": "^5.7.3"
+  }
+}
